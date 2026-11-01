@@ -1,0 +1,40 @@
+project:
+  name: "Descriptive Orders Analyzer"
+  version: "1.0.0"
+
+
+directories:
+  raw_data: "./data/raw"
+  processed_data: "./data/processed"
+  charts: "./outputs/charts"
+  reports: "./outputs/reports"
+  logs: "./logs"
+
+
+data_schema:
+  id_column: "OrderID"
+  date_columns: 
+    - "Order_Date"
+  category_column: "Category"
+  value_column: "Order_Value"
+
+
+analysis:
+ 
+  vip_percentiles: [50, 75, 90, 95, 99]
+
+  iqr_multiplier: 1.5
+
+
+visualization:
+  theme: "whitegrid"
+  palette: "viridis"
+  dpi: 300           
+  figsize:
+    width: 10
+    height: 6
+
+logging:
+  level: "INFO"       
+  format: "%(asctime)s - %(levelname)s - %(message)s"
+  filename: "pipeline.log"

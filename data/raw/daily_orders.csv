@@ -1,0 +1,6 @@
+OrderID,Order_Date,Category,Order_Value
+101,2026-11-01,Apparel,45.50
+102,2026-11-01,Electronics,1200.00
+103,2026-11-01,Apparel,22.00
+104,2026-11-01,Home,150.00
+105,2026-11-01,Electronics,850.00
