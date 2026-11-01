@@ -11,12 +11,13 @@ directories:
   logs: "./logs"
 
 
+# 2. Data Schema Mapping
 data_schema:
-  id_column: "OrderID"
+  id_column: "Order ID"
   date_columns: 
-    - "Order_Date"
+    - "Order Time"
   category_column: "Category"
-  value_column: "Order_Value"
+  value_column: "Price"
 
 
 analysis:
