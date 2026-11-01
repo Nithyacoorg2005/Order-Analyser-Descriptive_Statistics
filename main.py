@@ -103,18 +103,20 @@ def run_pipeline():
 if __name__ == "__main__":
     print("Initializing pipeline...") 
     
-    # Create dummy data for testing if the raw folder is empty
     os.makedirs("./data/raw", exist_ok=True)
     dummy_csv = "./data/raw/daily_orders.csv"
-    if not os.path.exists(dummy_csv):
-        with open(dummy_csv, "w") as f:
-            f.write("OrderID,Order_Date,Category,Order_Value\n")
-            f.write("101,2026-11-01,Apparel,45.50\n")
-            f.write("102,2026-11-01,Electronics,1200.00\n")
-            f.write("103,2026-11-01,Apparel,22.00\n")
-            f.write("104,2026-11-01,Home,150.00\n")
-            f.write("105,2026-11-01,Electronics,850.00\n")
     
-    # This is the line that actually forces the script to run
+    # Notice we removed the "if not os.path.exists" check to force an overwrite
+    with open(dummy_csv, "w") as f:
+        # New Headers
+        f.write("Order ID,Customer Name,Food Item,Category,Quantity,Price,Payment Method,Order Time\n")
+        
+        # New Data
+        f.write("101,John Doe,Paneer Biryani,Indian,2,450.00,UPI,2026-11-01 12:30:00\n")
+        f.write("102,Jane Smith,Veg Momos,Indo-Chinese,1,180.00,Card,2026-11-01 13:15:00\n")
+        f.write("103,Mike Ross,Frozen Cherry Coffee,Beverage,3,750.00,UPI,2026-11-01 14:00:00\n")
+        f.write("104,Sarah Lee,Chicken Fried Rice,Indo-Chinese,2,220.00,Cash,2026-11-01 18:45:00\n")
+        f.write("105,Chris Pratt,Pineapple Fermentation Coffee,Beverage,1,300.00,Card,2026-11-01 19:30:00\n")
+    
     run_pipeline()
     print("Pipeline execution finished! Check the outputs/ folder.")
